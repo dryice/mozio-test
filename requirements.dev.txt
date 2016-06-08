@@ -1,0 +1,4 @@
+--requirement=requirements.txt
+
+django-extensions
+ipython
