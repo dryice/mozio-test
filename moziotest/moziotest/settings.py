@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth',
     'rest_auth.registration',
+
+    'userprofile',
 ]
 
 INSTALLED_APPS += local_settings.LOCAL_INSTALLED_APPS
@@ -133,3 +135,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 SITE_ID = 1
 EMAIL_BACKEND = local_settings.LOCAL_EMAIL_BACKEND
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'userprofile.serializers.UserSerializer'
+}
+
