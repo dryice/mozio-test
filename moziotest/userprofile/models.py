@@ -10,4 +10,5 @@ class UserProfile(models.Model):
     language = models.CharField(max_length = 15)
     currency = models.CharField(max_length = 15)
 
-
+    def __str__(self):
+        return self.user
