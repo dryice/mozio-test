@@ -1,4 +1,4 @@
-from django.db import models
+from django.contrib.gis.db import models
 from django.conf import settings
 
 
@@ -12,3 +12,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user
+
+
+class ServiceArea(models.Model):
+    provider = models.ForeignKey(UserModel)
+    name = models.CharField(max_length = 64)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    area = models.PolygonField()
+
