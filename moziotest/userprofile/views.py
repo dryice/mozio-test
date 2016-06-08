@@ -3,6 +3,7 @@ from rest_framework import permissions
 
 from .models import ServiceArea
 from .serializers import ServiceAreaSerializer
+from .filters import ServiceAreaFilter
 
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
@@ -19,17 +20,11 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         # Write permissions are only allowed to the owner of the snippet.
         return obj.provider == request.user
 
-# class ServiceAreaList(generics.ListCreateAPIView):
-#     queryset = ServiceArea.objects.all()
-#     serializer_class = ServiceAreaSerializer
-
-# class ServiceAreaDetail(genrics.RetriveUpdateDestroyAPIView):
-#     queryset = ServiceArea.objects.all()
-#     serializer_class = ServiceAreaSerializer
 
 class ServiceAreaViewSet(viewsets.ModelViewSet):
     queryset = ServiceArea.objects.all()
     serializer_class = ServiceAreaSerializer
+    filter_class = ServiceAreaFilter
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly,)
     
