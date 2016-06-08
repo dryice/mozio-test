@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from rest_auth.serializers import UserDetailsSerializer
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
-from .models import UserProfile
+from .models import UserProfile, ServiceArea
 
 class UserSerializer(UserDetailsSerializer):
 
@@ -34,3 +35,18 @@ class UserSerializer(UserDetailsSerializer):
 
         profile.save()
         return instance
+
+
+class ServiceAreaSerializer(GeoFeatureModelSerializer):
+    """ A class to serialize locations as GeoJSON compatible data """
+
+    class Meta:
+        model = ServiceArea
+        geo_field = "area"
+
+        # you can also explicitly declare which fields you want to include
+        # as with a ModelSerializer.
+        fields = ('id', 'provider', 'name', 'price')
+        read_only_fields = ('provider', )
+
+        
