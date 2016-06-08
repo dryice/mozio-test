@@ -1,3 +1,8 @@
+# database
+LOCAL_DATABASES_DEFAULT_NAME = "moziotest"
+LOCAL_DATABASES_DEFAULT_USER = "moziotest"
+LOCAL_DATABASES_DEFAULT_PASSWORD = "moziotest"
+
 LOCAL_INSTALLED_APPS = ()
 
 # SECURITY WARNING: keep the secret key used in production secret!
