@@ -5,3 +5,4 @@ djangorestframework
 django-rest-auth
 djangorestframework-gis
 django-rest-swagger
+django-filter
