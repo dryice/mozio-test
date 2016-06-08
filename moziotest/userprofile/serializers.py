@@ -39,7 +39,8 @@ class UserSerializer(UserDetailsSerializer):
 
 class ServiceAreaSerializer(GeoFeatureModelSerializer):
     """ A class to serialize locations as GeoJSON compatible data """
-
+    provider = serializers.ReadOnlyField(source="provider.username")
+    
     class Meta:
         model = ServiceArea
         geo_field = "area"
