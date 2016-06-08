@@ -132,3 +132,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 SITE_ID = 1
+EMAIL_BACKEND = local_settings.LOCAL_EMAIL_BACKEND
