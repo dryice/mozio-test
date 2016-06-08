@@ -10,4 +10,4 @@ class ServiceAreaFilter(GeoFilterSet):
     
     class Meta:
         model = ServiceArea
-        fields = ("price", "contains_point")
+        fields = ("contains_point")
