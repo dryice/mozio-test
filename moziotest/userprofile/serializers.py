@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from rest_auth.serializers import UserDetailsSerializer
 
+from .models import UserProfile
+
 class UserSerializer(UserDetailsSerializer):
 
     phone_number = serializers.CharField(source="userprofile.phone_number")
@@ -20,7 +22,9 @@ class UserSerializer(UserDetailsSerializer):
         instance = super(UserSerializer, self).update(instance, validated_data)
 
         # get and update user profile
-        profile = instance.userprofile
+        profile, created = UserProfile.objects.get_or_create(
+            user = instance)
+        
         if profile_data and phone_number:
             profile.phone_number = phone_number
         if profile_data and language:
