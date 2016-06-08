@@ -15,3 +15,5 @@ class ServiceAreaViewSet(viewsets.ModelViewSet):
     queryset = ServiceArea.objects.all()
     serializer_class = ServiceAreaSerializer
     
+    def perform_create(self, serializer):
+        serializer.save(provider=self.request.user)
