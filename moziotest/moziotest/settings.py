@@ -10,20 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+from __future__ import absolute_import
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+from moziotest import local_settings
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jd!^4^yw$3#cc6$us(q1$zo4w7%w_2!4h5*saiz_1qh7m@*jl7'
+SECRET_KEY = local_settings.LOCAL_SECRET_KEY
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = local_settings.LOCAL_DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+INSTALLED_APPS += local_settings.LOCAL_INSTALLED_APPS
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
