@@ -12,3 +12,5 @@ LOCAL_SECRET_KEY = 'jd!^4^yw$3#cc6$us(q1$zo4w7%w_2!4h5*saiz_1qh7m@*jl7'
 LOCAL_DEBUG = True
 
 LOCAL_EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOCAL_REST_FRAMEWORK = {}
