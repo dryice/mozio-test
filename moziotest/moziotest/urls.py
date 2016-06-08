@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^api/v1/auth/', include('rest_auth.urls')),
     url(r'^api/v1/auth/registration/', include('rest_auth.registration.urls')),
     url(r'^api/v1/data/', include(router.urls)),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
 ]
