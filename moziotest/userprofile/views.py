@@ -22,6 +22,53 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 
 class ServiceAreaViewSet(viewsets.ModelViewSet):
+    """
+    Service Area CRUD.
+
+    When creating/updating, the area parameter should be a
+    polygon. E.g:
+    
+    {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [
+                    17.75390625,
+                    8.2265630364418
+                ],
+                [
+                    22.587890625,
+                    4.09
+                ],
+                [
+                    12.744140625,
+                    -1.5292963385582
+                ],
+                [
+                    12.392578125,
+                    6.5566411614418
+                ],
+                [
+                    13.798828125,
+                    10.687500536442
+                ],
+                [
+                    16.34765625,
+                    10.687500536442
+                ],
+                [
+                    17.75390625,
+                    8.2265630364418
+                ]
+            ]
+        ]
+    }
+
+    When quering, the contains_point parameter should be a point
+    (lat/lng pair). E.g:
+
+    { "type": "Point", "coordinates": [ 14, 4 ] }
+    """    
     queryset = ServiceArea.objects.all()
     serializer_class = ServiceAreaSerializer
     filter_class = ServiceAreaFilter
